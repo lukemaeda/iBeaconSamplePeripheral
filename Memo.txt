@@ -1,0 +1,4 @@
+
+
+20行目では、先程と同じように CLBeaconRegion のインスタンスを生成しています。今回は、proximity UUID の他に major と minor も指定しています。CLBeaconRegion のインスタンスを生成しているのは、Beacon としてアドバタイズするデータを取得するためです。CLBeaconRegion の peripheralDataWithMeasuredPower: メソッドは、イニシャライザで指定した設定値を基にアドバタイズするデータを返します。よって、上記コードでは、proximity UUID に生成した UUID、major に 1、 minor に 2 が設定された NSDictionary 型のデータが返されます。
+なお、このメソッドのパラメータの measuredPower というのは、ペリフェラルの 1m 地点での電波強度を表す NSNumber 型の値です。この数値を識別情報と一緒にアドバタイズして、セントラル側で距離測定の際に利用します。nil を渡すとデフォルト値が設定されます。
